@@ -8,6 +8,12 @@
   **Hackathon result: 4th place** · Next.js · TypeScript · PostgreSQL (partial integration)
 </div>
 
+## Visual update: ADEM brand rollout
+
+The latest hackathon prototype adds a clinic-photo hero and ADEM logomark on the patient booking page, plus a plum-purple branded header and coordinated lavender components in the reception dashboard. This change updates the visual presentation, **not** the prototype's data architecture: the dashboard still uses browser `localStorage`, and the database is not yet a unified source of truth.
+
+The repository includes a lightweight web-optimized rendition of the hero photograph; the original high-resolution asset remains in the supplied prototype archive.
+
 ## Overview
 
 ADEM explores a practical problem in clinic reception: booking requests, appointment confirmations, and follow-up details become difficult to track when they are scattered across chats. The prototype provides a patient-facing booking form and a receptionist dashboard in one Next.js application.
