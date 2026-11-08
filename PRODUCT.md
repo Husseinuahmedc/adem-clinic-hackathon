@@ -1,42 +1,38 @@
-# Product
+# ADEM — Product notes
 
-<!-- impeccable:product-schema 1 -->
+## Purpose
 
-## Platform
+ADEM is a hackathon prototype for Arabic-first dermatology clinic appointment requests and receptionist workflows. The team earned 4th place.
 
-web
+## Technology
 
-## Stack
+Next.js 14 (App Router), React, TypeScript, custom CSS, browser localStorage, PostgreSQL schema, and partially connected server actions.
 
-delegated: Next.js App Router, TypeScript, and plain CSS for a browser-only hackathon demo.
+## Users and workflows
 
-## Users
+- **Patients** submit a booking request with name, age, neighborhood, optional phone and reason for visit.
+- **Reception staff** view and filter bookings, add WhatsApp requests manually, assign appointment dates and times, prepare WhatsApp confirmations and track follow-ups.
+- **Analytics** show an area-by-age heatmap in the reception dashboard.
 
-Patients submit a simple clinic booking request from a mobile-friendly Arabic page. Reception staff review requests and complete appointment details from a dashboard.
+## Current prototype boundaries
 
-## Product Purpose
+- The dashboard currently reads and writes browser localStorage.
+- The patient booking Server Action saves to PostgreSQL only when DATABASE_URL is configured; otherwise the client saves demo data to localStorage.
+- The database and dashboard are not yet connected into a shared source of truth.
+- Staff database actions and a cookie guard exist, but a complete login flow is not implemented.
+- WhatsApp links only prepare messages; actual sending is manual.
+- Seeded records are fictional; the app is not ready for real clinical data.
 
-The prototype makes it possible to collect fictional clinic booking requests and organize them into appointment-ready records without authentication, payments, or backend infrastructure.
+## Next technical steps
 
-## Operating Context
+1. Move all reads and writes to a single PostgreSQL-backed data layer.
+2. Implement staff authentication and authorization.
+3. Add transactions, audit trails, appointment validation and safe handling of personal information.
+4. Test the full booking-to-reception flow across browsers/devices.
 
-The demo is evaluated in one browser. Both pages share typed localStorage data and preserve changes across reloads.
+## Credits
 
-## Capabilities and Constraints
+Software development: Hussein (with OpenAI Codex as an assistant).
+UI/UX and brand identity: collaborating designer.
 
-Required flow: patient name, valid age, fixed demo area, optional phone, new booking state, reception appointment date/time, notes, confirmation, filters, and an area-by-age heatmap. Content and brand identity remain placeholders.
-
-## Brand Commitments
-
-Temporary clinic heading: العيادة. Arabic RTL interface. Intro text and map URL are deliberately unset until the team supplies final content.
-
-## Evidence on Hand
-
-No real patient, clinic, or brand records. All seeded records are fictional demo data.
-
-## Product Principles
-
-- Make the next action obvious.
-- Keep patient input short and forgiving.
-- Make reception status visible at a glance.
-- Treat demo data as fictional and local to this browser.
+See README.md and docs/architecture.md for details.
