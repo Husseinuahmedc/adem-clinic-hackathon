@@ -1,0 +1,22 @@
+# Dependencies and build artifacts
+/node_modules
+/.next
+/out
+/dist
+*.tsbuildinfo
+*.log
+
+# Secrets: commit only templates
+.env
+.env.*
+!.env.example
+
+# Local tools and editor files
+.DS_Store
+.vscode/
+.idea/
+.impeccable/
+graphify-out/
+
+# Local media or exports
+*.zip

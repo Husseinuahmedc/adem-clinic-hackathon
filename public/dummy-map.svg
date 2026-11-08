@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="300" viewBox="0 0 640 300">
+  <rect width="640" height="300" fill="#E7DFED"/>
+  <g stroke="#FAF7FC" stroke-width="23">
+    <path d="M-40 70 720 70M-40 222 720 222"/>
+    <path d="M105 -50 105 360M385 -50 385 360M535 -50 535 360"/>
+  </g>
+  <g fill="#8D73A6" opacity=".18">
+    <rect x="126" y="92" width="96" height="106" rx="14"/>
+    <rect x="264" y="92" width="101" height="106" rx="14"/>
+    <rect x="419" y="94" width="91" height="104" rx="14"/>
+  </g>
+  <circle cx="321" cy="148" r="35" fill="#2B173A" opacity=".12"/>
+  <path d="M321 103c-24 0-44 19-44 44 0 32 44 74 44 74s44-42 44-74c0-25-20-44-44-44Z" fill="#2B173A"/>
+  <circle cx="321" cy="147" r="15" fill="#FAF7FC"/>
+  <text x="320" y="263" text-anchor="middle" font-size="18" font-family="sans-serif" fill="#2B173A">Approximate clinic area · Zayouna, Baghdad</text>
+</svg>
