@@ -67,7 +67,7 @@ The SQL migration (`db/migrations/001_clinic.sql`) defines:
 Requirements: **Node.js 20+** and npm. PostgreSQL is optional for the browser-only demo.
 
 ```bash
-npm ci
+npm install
 npm run dev
 ```
 
