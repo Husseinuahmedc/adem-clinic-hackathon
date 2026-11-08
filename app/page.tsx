@@ -56,7 +56,9 @@ export default function PatientPage() {
   return (
     <main className="landing-page">
       <section className="landing-hero" aria-labelledby="hero-title">
+        <Image className="landing-hero-image" src="/adem-hero.jpg" alt="" fill sizes="100vw" priority />
         <div className="landing-hero-copy">
+          <Image className="landing-hero-logo" src="/adem-logomark.svg" alt="" width={48} height={46} />
           <h1 id="hero-title">{clinicDisplayName}</h1>
           <p className="landing-hero-subtitle">رعاية جلدية هادئة تبدأ بخطوة بسيطة. أرسل طلبك وسيتواصل معك فريق الاستقبال لتأكيد الموعد.</p>
           <a className="primary-button landing-hero-button" href="#booking-form">اطلب موعد</a>

@@ -70,9 +70,19 @@ export default function DashboardPage() {
   }), [bookings, tab, area, group]);
   const counts = useMemo(() => demoAreas.map((item) => ageGroups.map((itemGroup) => bookings.filter((booking) => booking.area === item && ageGroup(booking.age) === itemGroup && matchesDemographics(booking, area, group)).length)), [bookings, area, group]);
 
-  if (!mounted) return <main className="page-shell"><div className="loading-state">جارٍ تجهيز السجل…</div></main>;
-  return <main className="page-shell dashboard-shell">
-    <header className="topbar"><div><span className="eyebrow">الاستقبال / اليوم</span><h1>لوحة المواعيد</h1></div><Link className="text-link" href="/">← نموذج المريض</Link></header>
+  if (!mounted) return <main className="page-shell"><div className="loading-state">جارٍ تجهيز السجل…</div></div>
+  </main>;
+  return <main className="dashboard-page">
+    <header className="dashboard-banner">
+      <div className="topbar dashboard-banner-inner">
+        <div className="dashboard-brand">
+          <img src="/adem-logomark.svg" alt="" width={48} height={46} />
+          <div><span className="eyebrow">{clinicDisplayName}</span><h1>لوحة المواعيد</h1></div>
+        </div>
+        <Link className="text-link" href="/">← نموذج المريض</Link>
+      </div>
+    </header>
+    <div className="page-shell dashboard-shell">
     <section className="dashboard-summary"><div><p className="summary-label">طلبات تحتاج متابعة</p><strong>{bookings.filter((b) => b.status === 'new').length}</strong><span> طلبات جديدة</span></div><div className="summary-date">{new Intl.DateTimeFormat('ar-IQ-u-nu-latn', { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date())}</div></section>
     <nav className="tabs" aria-label="تصفية الطلبات"><button className={tab === 'new' ? 'active' : ''} onClick={() => setTab('new')}>الجديدة <b>{bookings.filter((b) => b.status === 'new').length}</b></button><button className={tab === 'pending' ? 'active' : ''} onClick={() => setTab('pending')}>بانتظار الإرسال <b>{bookings.filter((b) => b.source === 'whatsapp' && b.status === 'confirmed' && !b.confirmationSentAt).length}</b></button><button className={tab === 'all' ? 'active' : ''} onClick={() => setTab('all')}>الكل <b>{bookings.length}</b></button><button className={tab === 'complaint' ? 'active' : ''} onClick={() => setTab('complaint')}>شكاوى</button><button className={tab === 'today' ? 'active' : ''} onClick={() => setTab('today')}>متابعات اليوم</button></nav>
     <section className="filter-row"><label>المنطقة<select value={area} onChange={(e) => setArea(e.target.value)}><option>الكل</option>{demoAreas.map((item) => <option key={item}>{item}</option>)}</select></label><label>الفئة العمرية<select value={group} onChange={(e) => setGroup(e.target.value)}><option>الكل</option>{ageGroups.map((item) => <option key={item}>{item}</option>)}</select></label></section>

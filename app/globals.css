@@ -119,3 +119,44 @@ form { display:grid; gap:22px; } label { display:grid; gap:8px; color:var(--ink)
 @media (prefers-reduced-motion: reduce) {
   .landing-page .primary-button { transition: none; }
 }
+
+
+/* Updated ADEM landing page and dashboard brand surfaces from the newer banner prototype. */
+:root { --brand-plum:#2B173A; --brand-mist:#E7DFED; --brand-violet:#8D73A6; --brand-white:#FAF7FC; }
+.landing-page { --landing-gutter:clamp(18px,4vw,36px); padding-inline:0; }
+.landing-page .landing-booking, .landing-page .landing-location { width:min(calc(100% - 2 * var(--landing-gutter)),1120px); margin-inline:auto; }
+.landing-page .landing-hero {
+ position:relative; isolation:isolate; display:grid; align-items:center; justify-items:end;
+ max-width:none; min-height:clamp(430px,48vw,650px); margin:0; text-align:initial;
+ padding:clamp(28px,6vw,88px) max(var(--landing-gutter),calc((100% - 1120px)/2));
+ overflow:hidden; background:var(--brand-plum);
+}
+.landing-hero-image { z-index:-1; object-fit:cover; object-position:65% 50%; }
+.landing-hero-copy { width:min(100%,480px); padding:clamp(24px,4vw,42px); border-radius:var(--radius); background:linear-gradient(135deg,rgba(43,23,58,.98),rgba(43,23,58,.82)); color:var(--brand-white); }
+.landing-hero-logo { display:block; margin-bottom:18px; padding:7px; border-radius:12px; background:var(--brand-white); }
+.landing-hero h1 { font-size:clamp(38px,6vw,68px); }
+.landing-hero-subtitle { max-width:none; margin:0 0 28px; color:var(--brand-white); }
+.landing-form-panel { border:1px solid var(--brand-mist); border-radius:var(--radius); background:linear-gradient(155deg,#fff 35%,var(--brand-white) 74%,var(--brand-mist)); }
+.landing-page .landing-hero-button { background:var(--brand-white); color:var(--brand-plum); }
+.landing-page .landing-hero-button:hover:not(:disabled) { background:var(--brand-mist); }
+.dashboard-page { --paper:var(--brand-white); --surface:#fff; --ink:var(--brand-plum); --muted:#65556F; --line:var(--brand-mist); --teal:var(--brand-plum); --teal-dark:var(--brand-plum); --mint:var(--brand-mist); min-height:100vh; background:var(--paper); color:var(--ink); }
+.dashboard-banner { background:linear-gradient(120deg,var(--brand-plum),#553A69); color:var(--brand-white); }
+.dashboard-banner-inner { align-items:center; max-width:1040px; margin-inline:auto; padding:clamp(18px,4vw,32px) var(--space); border:0; }
+.dashboard-shell { padding-top:0; }
+.dashboard-brand { display:flex; align-items:center; gap:14px; }
+.dashboard-brand img { flex:none; padding:7px; border-radius:12px; background:var(--brand-white); }
+.dashboard-brand h1 { letter-spacing:normal; }
+.dashboard-banner .eyebrow,.dashboard-banner .text-link { color:var(--brand-white); }
+.dashboard-summary { margin-block:24px 12px; padding:clamp(18px,4vw,30px); border:1px solid var(--brand-mist); border-radius:var(--radius); background:linear-gradient(130deg,#fff,var(--brand-mist)); }
+.dashboard-page .secondary-button,.dashboard-page .whatsapp-entry,.dashboard-page .manual-form,.dashboard-page .whatsapp-confirm { border-color:var(--brand-mist); }
+.dashboard-page .secondary-button:hover { background:#DCD0E6; }
+.dashboard-page .whatsapp-confirm { background:var(--brand-white); }
+.dashboard-page .heatmap td[data-level="low"] { background:var(--brand-mist); }
+.dashboard-page .heatmap td[data-level="high"] { background:var(--brand-violet); color:#150D1B; }
+.dashboard-page :focus-visible { outline-color:var(--brand-violet); }
+.dashboard-banner :focus-visible { outline-color:var(--brand-white); }
+@media (max-width:700px) {
+ .landing-page .landing-hero { min-height:510px; align-items:end; padding-block:160px 22px; }
+ .landing-hero-image { object-position:72% 40%; }
+}
+@media (max-width:520px) { .dashboard-banner-inner { flex-wrap:wrap; align-items:flex-start; } }
